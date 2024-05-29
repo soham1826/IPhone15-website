@@ -8,7 +8,7 @@ import { useRef } from "react"
 import { View } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { models, sizes } from "../constants"
-import { animateWithGsapTimeLine } from "../utils/Animations"
+import { animateWithGsap, animateWithGsapTimeLine } from "../utils/Animations"
 
 const Model = () => {
     const[size , setSize] = useState("small");
@@ -43,10 +43,7 @@ const Model = () => {
     },[size])
 
     useGSAP(()=>{
-        gsap.to('#heading',{
-            y:0,
-            opacity:1
-        })
+        animateWithGsap('#heading',{opacity:1, y:0})
     },[])
   return (
     <section className="common-padding">
